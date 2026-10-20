@@ -16,6 +16,8 @@ Review texts are not redistributed; `prepare.py` rebuilds the corpora determinis
     python code/detect.py work work/detect.json       # 8 scenarios x 5 seeds, all detectors
     python code/ranking.py work work/ranking.json     # product-ranking manipulation experiment
     python code/natural_audit.py work code            # audit sample of natural inconsistencies (gpt-4.1-mini labels)
+    cp data/natural_audit_human_labels.csv work/human_audit.csv
+    python code/human_audit.py work paper/tables/audit_macros.tex   # human vs LLM agreement
     python code/make_outputs.py work <paper_dir>      # tables and figures
 
 `detect_lib.py` contains the scenario construction and all detectors, including SAAD (maximum of robust z-scores of the
@@ -24,6 +26,7 @@ sentiment-rating gap, product-context distance and style outlierness).
 ## Files
 - `data/llm_promotional_reviews_tr.csv` – the 1,427 LLM-written Turkish reviews used as manipulations (product id, text).
 - `data/natural_audit_llm_labels.csv` – review ids, sample (top-200 by sentiment gap / random-200) and LLM labels.
+- `data/natural_audit_human_labels.csv` – blind human labels (consistent / inconsistent / unclear) for the same 400 reviews.
 - `results/` – detection and ranking results (all seeds).
 
 ## Licence

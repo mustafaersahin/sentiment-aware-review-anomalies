@@ -47,10 +47,7 @@ for m, nm in RM:
     v = R["5pct"][m]; L.append(f"{nm} & {np.mean(v['tau']):.3f} & {np.mean(v['rank_err']):.1f} & {np.mean(v['ndcg20']):.3f} & {100*np.mean(v['injected_removed']):.1f}\\% & {100*np.mean(v['genuine_removed']):.1f}\\% \\\\")
 L += [r"\bottomrule", r"\end{tabular}", r"\end{table*}"]
 open(f"{P}/tables/ranking.tex", "w").write("\n".join(L) + "\n")
-# natural audit (LLM labels; human labels added later)
-a = pd.read_csv(f"{W}/natural_audit.csv")
-for s in ["top200", "random200"]:
-    x = a[a["sample"] == s].label.value_counts(); mac.append(f"\\newcommand{{\\audit{s.replace('200','')}Inc}}{{{100*x.get('inconsistent',0)/200:.1f}}}")
+# natural audit: macros are written by human_audit.py (tables/audit_macros.tex)
 # figure: AUPRC of groups
 fig, ax = plt.subplots(figsize=(9, 3.2))
 grp = [("IF (text)", "Isolation Forest (content)", "#999999"), ("Sentiment gap (ensemble)", "Sentiment gap", "#1f77b4"), ("Context distance", "Context distance", "#2ca02c"),
