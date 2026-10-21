@@ -9,5 +9,11 @@ authors:
     given-names: "Mustafa"
     affiliation: "Commencis"
 version: "2.0.0"
+doi: "10.5281/zenodo.23531379"
+date-released: "2026-10-21"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23531378"
+    description: "Concept DOI (all versions)"
 license: MIT
 repository-code: "https://github.com/mustafaersahin/sentiment-aware-review-anomalies"

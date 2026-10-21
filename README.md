@@ -1,10 +1,13 @@
 # Sentiment–Rating Gaps for Detecting Manipulated Product Reviews
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23531378.svg)](https://doi.org/10.5281/zenodo.23531378)
+
 Code and results accompanying the manuscript *"Sentiment–Rating Gaps for Detecting Manipulated Product Reviews:
 Evidence from Turkish and English Data"* (B. Erşahin and M. Erşahin).
 
-> **Status:** revised version for the manuscript. The state before the revision is tagged `v1.0-initial`
-> (commit `f30c2b1`); the archived release (`v2.0.0`, Zenodo DOI) will be listed here once published. See *Versions* below.
+> **Status:** revised version for the manuscript, archived as release `v2.0.0` (commit `e5f9210`):
+> [10.5281/zenodo.23531379](https://doi.org/10.5281/zenodo.23531379); all versions: [10.5281/zenodo.23531378](https://doi.org/10.5281/zenodo.23531378).
+> The state before the revision is tagged `v1.0-initial` (commit `f30c2b1`). See *Versions* below.
 
 ## Data
 - Turkish: Trendyol product reviews, Hugging Face `Doukan/trendyol-turkish-product-reviews`, revision
@@ -51,7 +54,7 @@ intervals describe Monte Carlo variation of the attack draws only. See `rank_v4/
 - `results/detection.json` – detection results (all scenarios, detectors and seeds; aggregate metrics).
 
 ## Citation
-See `CITATION.cff`. Archive and DOI: Zenodo (to be added after the release).
+See `CITATION.cff`. Release v2.0.0: https://doi.org/10.5281/zenodo.23531379 (cite all versions: https://doi.org/10.5281/zenodo.23531378).
 
 ## Licence
 Code: MIT.
