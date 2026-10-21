@@ -1,0 +1,464 @@
+{
+ "sha256": {
+  "code/ranking.py": "424c65456e3dc37ca7cbb1830c78cb9b7077b978282d041701587237a1ff062b",
+  "code/detect_lib.py": "15845da401037e6eb1b6f359db45258cdc9a4a2f88f97945bd2faaeeb9d991bd",
+  "code/prepare.py": "fab199efd26c4851105282de51b2cd691bf4efd58ebc884936e94a897d92faa5",
+  "code/gen_fake_tr.py": "6c1c6a608326ce7b440cab74d784ef4d3b4495e5154081a081f626868d3f1958",
+  "code/encode.py": "d8846ce7bdbf7e0ff24802476fcc86ba86c4bd6706ad425aa1dff29dd44d98ed",
+  "work/tr_corpus.parquet": "9e210bd0665ede226ab736d090b915f59b2716b8fb79288e3dc537eda8f3a713",
+  "work/emb_tr.npy": "f2f0b71501d9b2c72016ea8eb2e6690c383a04f13335b55ee993ded74f797ca9",
+  "work/sent_tr.npy": "884ea380b4c39392cbc3835b0a54b7b2a5d2b5cb9b01c5d48777d2fd7b35213f",
+  "work/tr_llm_fake.parquet": "7539fc8ab43216a9373fe167528052df289527a56302cb2b831a02e75c96b890",
+  "work/ranking.json": "b2d928460cda09006b0fa7c3a64e5241a3ca132872a9f0fb53536871c2a0d940",
+  "work/detect.json": "9a4a4b28535a00a9988b2a67428c1e56dcf0331a33b7c8c6d7d5428bff94af0a",
+  "work/human_audit.csv": "7a624d835586cbed2c60722008639f0938e567e47ca4fc0a98dc3497c032fa2c",
+  "work/natural_audit.csv": "b0fef9d76589059e409be3cc56ff88478eff8fb276f1bd639b84bbac7d273aa3",
+  "paper/main.tex": "89f47ff560d5418297f3260ec307a0aed39c99d47ffbe8d5690d8a602a3ebb2c",
+  "paper/tables/ranking.tex": "577ae288172d95086d9d83d8d9b7dbf7cc77e60ae00f5947ff63ed52440f92d0",
+  "data/trendyol-turkish-product-reviews/trendyol_reviews_20251212_000835.csv": "d5b6a962237e5353a69a18347894bd51827adfcfa233d0ff795f7d96408d73d7",
+  "rank_v4/code/common.py": "8b31c20bcb972399ea7782101319271d29cef5999e73f93a83f0a86cb24878d9",
+  "rank_v4/code/exp.py": "eecff509946f2b7b0b9ac74d314b805f97e07cb9081ee99711c23454efd0c7e0",
+  "rank_v4/PROTOCOL_v4.2.md": "9e4560c6ceb316e8dfa77bc84a0e641739b0b5b1390988d373e5ea999de643ea"
+ },
+ "repo_commit": "f30c2b19004efcedfef913f1d3a273b0dc49396c",
+ "repo_dirty_files": 0,
+ "env": {
+  "python": "3.13.16",
+  "numpy": "2.5.4",
+  "pandas": "3.0.6",
+  "sklearn": "1.9.1",
+  "scipy": "1.18.1",
+  "machine": "x86_64",
+  "entropy": 20261021
+ },
+ "schema": {
+  "columns": [
+   "rid",
+   "pid",
+   "product_name",
+   "category",
+   "rating",
+   "text",
+   "part"
+  ],
+  "dtypes": {
+   "rid": "str",
+   "pid": "int16",
+   "product_name": "str",
+   "category": "str",
+   "rating": "int64",
+   "text": "str",
+   "part": "str"
+  },
+  "n_rows": 46163,
+  "rid_unique": true,
+  "rid_format_ok": true,
+  "rid_has_pipe": false,
+  "ratings": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "text_null": 0,
+  "parts": {
+   "reference": 23234,
+   "evaluation": 22929
+  },
+  "emb_shape": [
+   46163,
+   384
+  ],
+  "emb_finite": true,
+  "sent_shape": [
+   46163
+  ],
+  "sent_range": [
+   0.00028502914938144386,
+   0.9998843669891357
+  ],
+  "sent_finite": true,
+  "duplicate_norm_text_within_product": 55
+ },
+ "raw_csv": {
+  "rows": 582601,
+  "unique_product_urls": 476,
+  "products_per_category": {
+   "Aksesuar": 99,
+   "Kitap": 98,
+   "Giyim": 97,
+   "Elektronik": 93,
+   "Kozmetik & Ki\u015fisel Bak\u0131m": 89
+  }
+ },
+ "counts": {
+  "eval_products": 238,
+  "ranking_pool": 192,
+  "val": 64,
+  "test": 128,
+  "reference_products": 238,
+  "source_products": 71,
+  "source_reviews": 7012,
+  "ridge_fit_reviews": 16222
+ },
+ "universe": {
+  "val": {
+   "mu": 4.744372990353698,
+   "n_reviews": 7464
+  },
+  "test": {
+   "mu": 4.712253017735518,
+   "n_reviews": 14829
+  }
+ },
+ "n_L_distribution": {
+  "val/lower": {
+   "products": 32,
+   "n_min": 44,
+   "n_median": 120.0,
+   "n_max": 120,
+   "L_min": 0,
+   "L_median": 3.0,
+   "L_max": 18,
+   "L_ge1": 30,
+   "L_class_counts": [
+    2,
+    13,
+    7,
+    10
+   ],
+   "n_reviews": 3624
+  },
+  "val/upper": {
+   "products": 32,
+   "n_min": 120,
+   "n_median": 120.0,
+   "n_max": 120,
+   "L_min": 0,
+   "L_median": 0.0,
+   "L_max": 2,
+   "L_ge1": 7,
+   "L_class_counts": [
+    25,
+    7,
+    0,
+    0
+   ],
+   "n_reviews": 3840
+  },
+  "test/lower": {
+   "products": 64,
+   "n_min": 47,
+   "n_median": 120.0,
+   "n_max": 120,
+   "L_min": 0,
+   "L_median": 3.5,
+   "L_max": 60,
+   "L_ge1": 56,
+   "L_class_counts": [
+    8,
+    21,
+    8,
+    27
+   ],
+   "n_reviews": 7229
+  },
+  "test/upper": {
+   "products": 64,
+   "n_min": 40,
+   "n_median": 120.0,
+   "n_max": 120,
+   "L_min": 0,
+   "L_median": 0.0,
+   "L_max": 2,
+   "L_ge1": 9,
+   "L_class_counts": [
+    55,
+    9,
+    0,
+    0
+   ],
+   "n_reviews": 7600
+  }
+ },
+ "ridge_refit_pred_by_star": {
+  "1": 3.9952147006988525,
+  "2": 4.077585697174072,
+  "3": 4.338964462280273,
+  "4": 4.662972927093506,
+  "5": 4.799333572387695
+ },
+ "source_pool_by_cat_star": {
+  "Aksesuar": {
+   "1": 63,
+   "2": 31,
+   "3": 102,
+   "4": 238,
+   "5": 1246
+  },
+  "Elektronik": {
+   "1": 53,
+   "2": 10,
+   "3": 39,
+   "4": 172,
+   "5": 1582
+  },
+  "Giyim": {
+   "1": 63,
+   "2": 29,
+   "3": 62,
+   "4": 121,
+   "5": 753
+  },
+  "Kitap": {
+   "1": 18,
+   "2": 7,
+   "3": 33,
+   "4": 134,
+   "5": 1279
+  },
+  "Kozmetik & Ki\u015fisel Bak\u0131m": {
+   "1": 43,
+   "2": 24,
+   "3": 36,
+   "4": 112,
+   "5": 762
+  }
+ },
+ "pool_adequacy": {
+  "test/A1/0.1": {
+   "targets": 64,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 25,
+   "max_k": 12
+  },
+  "test/A1/0.2": {
+   "targets": 64,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 25,
+   "max_k": 24
+  },
+  "test/A1/0.3": {
+   "targets": 64,
+   "excluded_pool": 6,
+   "excluded_paired": 6,
+   "share_excluded": 0.09375,
+   "min_pool": 25,
+   "max_k": 36
+  },
+  "test/A2/0.1": {
+   "targets": 64,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 748,
+   "max_k": 12
+  },
+  "test/A2/0.2": {
+   "targets": 64,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 748,
+   "max_k": 24
+  },
+  "test/A2/0.3": {
+   "targets": 64,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 748,
+   "max_k": 36
+  },
+  "test/A3/0.1": {
+   "targets": 64,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 25,
+   "max_k": 12
+  },
+  "test/A3/0.2": {
+   "targets": 64,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 25,
+   "max_k": 24
+  },
+  "test/A3/0.3": {
+   "targets": 64,
+   "excluded_pool": 9,
+   "excluded_paired": 9,
+   "share_excluded": 0.140625,
+   "min_pool": 25,
+   "max_k": 36
+  },
+  "val/A1/0.1": {
+   "targets": 32,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 25,
+   "max_k": 12
+  },
+  "val/A1/0.2": {
+   "targets": 32,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 25,
+   "max_k": 24
+  },
+  "val/A1/0.3": {
+   "targets": 32,
+   "excluded_pool": 5,
+   "excluded_paired": 5,
+   "share_excluded": 0.15625,
+   "min_pool": 25,
+   "max_k": 36
+  },
+  "val/A2/0.1": {
+   "targets": 32,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 750,
+   "max_k": 12
+  },
+  "val/A2/0.2": {
+   "targets": 32,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 750,
+   "max_k": 24
+  },
+  "val/A2/0.3": {
+   "targets": 32,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 750,
+   "max_k": 36
+  },
+  "val/A3/0.1": {
+   "targets": 32,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 25,
+   "max_k": 12
+  },
+  "val/A3/0.2": {
+   "targets": 32,
+   "excluded_pool": 0,
+   "excluded_paired": 0,
+   "share_excluded": 0.0,
+   "min_pool": 25,
+   "max_k": 24
+  },
+  "val/A3/0.3": {
+   "targets": 32,
+   "excluded_pool": 7,
+   "excluded_paired": 7,
+   "share_excluded": 0.21875,
+   "min_pool": 25,
+   "max_k": 36
+  }
+ },
+ "feasible_alphas": {
+  "A1": [
+   0.1,
+   0.2
+  ],
+  "A2": [
+   0.1,
+   0.2,
+   0.3
+  ],
+  "A3": [
+   0.1,
+   0.2
+  ]
+ },
+ "eligible_targets_L_ge1": {
+  "test/A1/0.1": 56,
+  "test/A1/0.2": 56,
+  "test/A1/0.3": 51,
+  "test/A2/0.1": 9,
+  "test/A2/0.2": 9,
+  "test/A2/0.3": 9,
+  "test/A3/0.1": 9,
+  "test/A3/0.2": 9,
+  "test/A3/0.3": 9,
+  "val/A1/0.1": 30,
+  "val/A1/0.2": 30,
+  "val/A1/0.3": 25,
+  "val/A2/0.1": 7,
+  "val/A2/0.2": 7,
+  "val/A2/0.3": 7,
+  "val/A3/0.1": 7,
+  "val/A3/0.2": 7,
+  "val/A3/0.3": 6
+ },
+ "ff_matching_quality": {
+  "val/lower": {
+   "targets": 32,
+   "matched": 29,
+   "caliper10": 29,
+   "caliper20": 0,
+   "unmatched": 3,
+   "smd_n": 0.0,
+   "smd_L": -0.08508743152713967,
+   "abs_n_diff_max": 10,
+   "max_reuse": 2,
+   "distinct_controls": 22,
+   "b_diff_rho1_alpha02_max": 2
+  },
+  "val/upper": {
+   "targets": 32,
+   "matched": 32,
+   "caliper10": 32,
+   "caliper20": 0,
+   "unmatched": 0,
+   "smd_n": 0.0,
+   "smd_L": 0.0,
+   "abs_n_diff_max": 0,
+   "max_reuse": 3,
+   "distinct_controls": 23,
+   "b_diff_rho1_alpha02_max": 0
+  },
+  "test/lower": {
+   "targets": 64,
+   "matched": 58,
+   "caliper10": 57,
+   "caliper20": 1,
+   "unmatched": 6,
+   "smd_n": -0.024241595843080145,
+   "smd_L": -0.015321108890211,
+   "abs_n_diff_max": 18,
+   "max_reuse": 3,
+   "distinct_controls": 39,
+   "b_diff_rho1_alpha02_max": 3
+  },
+  "test/upper": {
+   "targets": 64,
+   "matched": 63,
+   "caliper10": 63,
+   "caliper20": 0,
+   "unmatched": 1,
+   "smd_n": 0.0,
+   "smd_L": 0.036467812244516805,
+   "abs_n_diff_max": 0,
+   "max_reuse": 3,
+   "distinct_controls": 45,
+   "b_diff_rho1_alpha02_max": 0
+  }
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "label": "EXPLORATORY analysis plan - frozen before any test-split computation",
+ "frozen_utc": "2026-10-21T08:40:51.314444+00:00",
+ "parameters": {
+  "split": "test",
+  "R": 10,
+  "rhos": [
+   0.5,
+   1,
+   2,
+   4
+  ],
+  "main_curve_rhos": [
+   0.5,
+   1,
+   2
+  ],
+  "stress_rhos": [
+   4
+  ],
+  "protocol_s4_stress_share": 0.25,
+  "alphas": {
+   "A1": [
+    0.1,
+    0.2
+   ],
+   "A2": [
+    0.1,
+    0.2,
+    0.3
+   ],
+   "A3": [
+    0.1,
+    0.2
+   ]
+  },
+  "methods": [
+   "B0",
+   "B2p",
+   "R2",
+   "R3",
+   "R4",
+   "gap_rm",
+   "gap_ens",
+   "saad_core",
+   "gap_cal",
+   "LAF@rho0.5"
+  ],
+  "selection": "none (no alpha, S*, R* or R selection)",
+  "interval": "t_{9} over replicates; D_rel: delete-one-replicate jackknife SE t interval"
+ },
+ "plan_text_section16": "## 16. Keşifsel analiz planı (2026-10-21, test analizinden önce donduruldu)\n**Statü:** α kuralı doğrulamada başarısız oldu (`out/selection_record_A1.json`); sıralama deneyinin tamamı **keşifseldir**. Hiçbir sonuç doğrulayıcı kanıt, istatistiksel üstünlük veya genelleme olarak sunulmaz. Eşik ve seçim kuralları değiştirilmedi.\n\n1. **Aileler ve α:** A1 {0,10; 0,20}; A2 {0,10; 0,20; 0,30} (havuz açısından uygulanabilir tüm değerler); A3 {0,10; 0,20}. α seçilmez; her değer ayrı raporlanır. Havuz dışlamaları 14.3/2. bölüm kurallarıyla (A3, A2 ile eşli).\n2. **Bütçe:** ana eğri ρ ∈ {0,5; 1; 2}; ρ = 4 ayrı stres testi. Protokol §4'teki %25 kuralına göre b/(n_p+k_p) > 0,25 olan ana eğri hücreleri (örn. α = 0,20, ρ = 2; α = 0,30, ρ = 1 ve 2) ayrıca \"§4 stres hücresi\" diye işaretlenir; hesap değişmez.\n3. **Tekrar:** R = 10 sabit (test bölmesi, r = 0…9); R artırılmaz.\n4. **Yöntemler:** B0, B2', R2, R3, R4, gap_rm, gap_ens, saad_core, gap_cal; LAF yalnızca ρ = 0,5. S* / R* seçilmez; kazanan ilan edilmez.\n5. **Ölçütler (aile × α × ρ × yöntem):** D (hedef sıra kayması, ortalama); D_rel,m = Σ_r Σ_p D_m / Σ_r Σ_p D_B0 (saldırı kaymasının filtre sonrası kalan oranı; ikili karşılaştırma değildir); puan sapması; yakalama oranı; TRR (L_p ≥ 1 hedeflerde toplamların oranı); ağırlıksız TRR (duyarlılık); yıldız sınıfı silme oranları; ağırlık yoğunlaşması (ΣL)²/ΣL² (yalnızca tanı); sınır tanısı (exact/near); kırpma sayısı.\n   A2/A3: hedefin 1★ havuzunda AUC (skor yöntemleri; yalnızca L¹ ≥ 1 hedefler), zenginleşme = Σ yakalanan / Σ beklenen rastgele-1★ yakalaması, mekanizma karşıtlığı = yakalama(A2) − yakalama(A3) (aynı r, p, α, ρ). A3'te yakalama tek başına başarı sayılmaz.\n   FF: A1 ve A2 hedeflerinin test eşleşmeleri (A3 aynı kontrolleri ve bütçe kuralını paylaşır); b_c = ⌈ρ⌈α n_c⌉⌉, n_c − 10 ile sınırlı; kontroller eşleştikleri hedef sayısıyla ağırlıklı; D, puan sapması, TRR_c, 1★ silme oranı.\n6. **Belirsizlik:** tekrar düzeyinde ortalama ± t_{9;0,975}·SD/√10; D_rel için delete-one-replicate jackknife SE ile t aralığı. Yalnızca sabit kohort ve saldırı üreticisi altındaki Monte Carlo belirsizliği; doğrulayıcı anlamlılık veya genelleme değil. Çoklu karşılaştırmadan \"istatistiksel olarak üstün\" sonucu çıkarılmaz. Ürün bootstrap'ı, S2, A4, A5 bu planda yoktur.\n7. **Kayıt:** plan, parametreler, kod/veri hash'leri `out/exploratory_plan_record.json`'a yazılır, sha256'sı ayrı dosyada; analiz betiği (`explore_test.py`) çalışmadan önce bu hash'leri doğrular. Analiz sonrası kayıt değiştirilmez.\n",
+ "code_sha256": {
+  "explore_test.py": "f6af878e613adebac1b680f9d8fa0953d304e35ef944cfdbe63c60116e93b042",
+  "common.py": "88a3b49ff1590ee97b4e49b9741d79c32a4f858f0b5e11d0f4021bc4a5ec84c1",
+  "exp.py": "4919fb19e637e9d88593a7d1068f945bb8551615089e105a2f259e0107ee067f"
+ },
+ "input_sha256": {
+  "work/tr_corpus.parquet": "9e210bd0665ede226ab736d090b915f59b2716b8fb79288e3dc537eda8f3a713",
+  "work/emb_tr.npy": "f2f0b71501d9b2c72016ea8eb2e6690c383a04f13335b55ee993ded74f797ca9",
+  "work/sent_tr.npy": "884ea380b4c39392cbc3835b0a54b7b2a5d2b5cb9b01c5d48777d2fd7b35213f",
+  "rank_v4/out/ff_matches.json": "31a8bc2ba3dbdc8b21ea9563abbbeb60ec1f34ab098c34aab8a2884950bde3b4",
+  "rank_v4/out/frozen_metadata.json": "ad29a203dc39c75dc174768a237aae8a2b34345f7d4eccb8f21d7ef224477de1",
+  "rank_v4/out/selection_record_A1.json": "571134d090222cc7699467a2834c267a24d0a26b43cedb5db27f3e93b33a51c5",
+  "rank_v4/out/selection_record_A1_addendum.md": "fe3a7327107526f98a2f3fa937be831b746645b71fdbb06a9dbe24e46cd6c0db",
+  "rank_v4/out/polarity_result.json": "54e9c9343cca334a656757618cc0cd8beade41bf5bc9ab04435d41566fa7cdca",
+  "rank_v4/PROTOCOL_v4.2.md": "04f4d969f862992ff047b6e775ace9f1c848431e0d131ec69e2a8688a06733c0"
+ },
+ "env": {
+  "python": "3.13.16",
+  "numpy": "2.5.4",
+  "pandas": "3.0.6",
+  "sklearn": "1.9.1",
+  "entropy": 20261021
+ }
+}

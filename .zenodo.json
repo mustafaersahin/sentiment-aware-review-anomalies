@@ -1,0 +1,15 @@
+{
+  "upload_type": "software",
+  "title": "Sentiment–Rating Gaps for Detecting Manipulated Product Reviews: replication package",
+  "description": "Code, generated reviews, audit labels and results accompanying the manuscript 'Sentiment–Rating Gaps for Detecting Manipulated Product Reviews: Evidence from Turkish and English Data'. Includes the detection experiments, the natural-inconsistency audit, the exploratory ranking-moderation analysis (rank_v4/, EXPLORATORY) and the superseded earlier ranking experiment (legacy/ranking_v1/). Review texts of the public corpora are not redistributed.",
+  "creators": [
+    {"name": "Erşahin, Buket", "affiliation": "İzmir Institute of Technology"},
+    {"name": "Erşahin, Mustafa", "affiliation": "Commencis"}
+  ],
+  "license": "MIT",
+  "keywords": ["online reviews", "review manipulation", "sentiment analysis", "anomaly detection", "e-commerce", "Turkish"],
+  "related_identifiers": [
+    {"identifier": "https://huggingface.co/datasets/Doukan/trendyol-turkish-product-reviews", "relation": "references", "resource_type": "dataset"},
+    {"identifier": "https://huggingface.co/datasets/theArijitDas/Fake-Reviews-Dataset", "relation": "references", "resource_type": "dataset"}
+  ]
+}

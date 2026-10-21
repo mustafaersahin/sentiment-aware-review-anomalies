@@ -1,8 +1,10 @@
 """Tables, figure and text macros for the manuscript. Usage: python make_outputs.py <work_dir> <paper_dir>"""
-import sys, json, numpy as np, pandas as pd
+import sys, os, json, numpy as np, pandas as pd
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 W, P = sys.argv[1], sys.argv[2]
-D = json.load(open(f"{W}/detect.json")); R = json.load(open(f"{W}/ranking.json"))
+D = json.load(open(f"{W}/detect.json"))
+# legacy v1 ranking experiment (legacy/ranking_v1): optional, not used by the revised manuscript
+R = json.load(open(f"{W}/ranking.json")) if os.path.exists(f"{W}/ranking.json") else None
 SC = ["tr-flip", "tr-llm", "tr-offtopic", "tr-mixed", "en-flip", "en-cg", "en-offtopic", "en-mixed"]
 HEAD = ["Flip", "LLM", "Off-topic", "Mixed", "Flip", "CG", "Off-topic", "Mixed"]
 M = [("IF (TF-IDF)", "Isolation Forest, TF-IDF"), ("IF (text)", "Isolation Forest, embedding"), ("LOF (text)", "LOF, embedding"),
@@ -37,16 +39,17 @@ L = [r"\begin{table}[t]", r"\centering", r"\caption{Ablation of the combination:
 for m, nm in AB: L.append(f"{nm} & {mean(m,'tr-mixed'):.3f} & {mean(m,'en-mixed'):.3f} & {mean(m,'tr-llm'):.3f} \\\\")
 L += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
 open(f"{P}/tables/ablation.tex", "w").write("\n".join(L) + "\n")
-# ranking table
+# ranking table (legacy v1 only)
 RM = [("No filtering", "No filtering"), ("IF (text)", "Isolation Forest, embedding"), ("OCSVM (text)", "One-class SVM, embedding"), ("AE (text)", "Autoencoder, embedding"),
       ("Sentiment gap (pretrained)", "Sentiment gap, pretrained"), ("Sentiment gap (rating model)", "Sentiment gap, rating model"), ("Sentiment gap (ensemble)", "Sentiment gap, ensemble"),
       ("Context distance", "Context distance"), ("SAAD w/o style", "SAAD-core"), ("SAAD (proposed)", "SAAD-full")]
 L = [r"\begin{table*}[t]", r"\centering", r"\caption{Product-ranking manipulation on the Turkish evaluation products (192 products with at least 40 reviews; 20 promoted and 20 demoted per seed; mean over five seeds). Each detector removes the 5\% highest-scoring reviews before re-ranking. $\tau$: Kendall correlation with the clean ranking; rank error: mean absolute rank displacement of attacked products; NDCG@20 with respect to the clean ranking; removed: share of injected and of genuine reviews removed. Without an attack, $\tau = 1$ and the rank error is 0.}",
      r"\label{tab:ranking}", r"\small", r"\begin{tabular}{@{}lrrrrr@{}}", r"\toprule", r"Filter & $\tau$ & Rank error & NDCG@20 & Injected removed & Genuine removed \\", r"\midrule"]
-for m, nm in RM:
+for m, nm in (RM if R is not None else []):
     v = R["5pct"][m]; L.append(f"{nm} & {np.mean(v['tau']):.3f} & {np.mean(v['rank_err']):.1f} & {np.mean(v['ndcg20']):.3f} & {100*np.mean(v['injected_removed']):.1f}\\% & {100*np.mean(v['genuine_removed']):.1f}\\% \\\\")
 L += [r"\bottomrule", r"\end{tabular}", r"\end{table*}"]
-open(f"{P}/tables/ranking.tex", "w").write("\n".join(L) + "\n")
+if R is not None:
+    open(f"{P}/tables/ranking.tex", "w").write("\n".join(L) + "\n")
 # natural audit: macros are written by human_audit.py (tables/audit_macros.tex)
 # figure: AUPRC of groups
 fig, ax = plt.subplots(figsize=(9, 3.2))
@@ -60,8 +63,8 @@ ax.set_xticks(x); ax.set_xticklabels([("TR " if s.startswith("tr") else "EN ") +
 ax.set_ylabel("AUPRC"); ax.legend(fontsize=7, ncol=3, loc="upper right"); ax.grid(axis="y", alpha=0.3)
 plt.tight_layout(); plt.savefig(f"{P}/figs/auprc.pdf"); plt.savefig(f"{P}/figs/auprc.png", dpi=200)
 # macros
-r5 = R["5pct"]
-for nm, m in [("NoF", "No filtering"), ("RM", "Sentiment gap (rating model)"), ("Core", "SAAD w/o style"), ("IFt", "IF (text)"), ("Ens", "Sentiment gap (ensemble)"), ("Full", "SAAD (proposed)")]:
+r5 = R["5pct"] if R is not None else None
+for nm, m in ([("NoF", "No filtering"), ("RM", "Sentiment gap (rating model)"), ("Core", "SAAD w/o style"), ("IFt", "IF (text)"), ("Ens", "Sentiment gap (ensemble)"), ("Full", "SAAD (proposed)")] if R is not None else []):
     mac.append(f"\\newcommand{{\\rk{nm}Err}}{{{np.mean(r5[m]['rank_err']):.1f}}}"); mac.append(f"\\newcommand{{\\rk{nm}Tau}}{{{np.mean(r5[m]['tau']):.3f}}}")
     mac.append(f"\\newcommand{{\\rk{nm}Gen}}{{{100*np.mean(r5[m]['genuine_removed']):.1f}}}"); mac.append(f"\\newcommand{{\\rk{nm}Inj}}{{{100*np.mean(r5[m]['injected_removed']):.1f}}}")
 for nm, m, s in [("ensTrFlip", "Sentiment gap (ensemble)", "tr-flip"), ("ensEnFlip", "Sentiment gap (ensemble)", "en-flip"), ("coreTrMix", "SAAD w/o style", "tr-mixed"),

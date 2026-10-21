@@ -1,0 +1,83 @@
+{
+ "A1": {
+  "n": 100,
+  "expected": 94,
+  "not_expected": 5,
+  "unclear": 1,
+  "share_expected": 0.94,
+  "threshold": 0.8,
+  "passed": true,
+  "status": "confirmatory-eligible (other conditions still apply)",
+  "by_category": {
+   "Kozmetik & Kişisel Bakım": {
+    "expected": 21,
+    "not_expected": 0,
+    "unclear": 0
+   },
+   "Elektronik": {
+    "expected": 12,
+    "not_expected": 2,
+    "unclear": 0
+   },
+   "Kitap": {
+    "expected": 12,
+    "not_expected": 2,
+    "unclear": 0
+   },
+   "Giyim": {
+    "expected": 26,
+    "not_expected": 1,
+    "unclear": 0
+   },
+   "Aksesuar": {
+    "expected": 23,
+    "not_expected": 0,
+    "unclear": 1
+   }
+  }
+ },
+ "A2": {
+  "n": 100,
+  "expected": 93,
+  "not_expected": 2,
+  "unclear": 5,
+  "share_expected": 0.93,
+  "threshold": 0.8,
+  "passed": true,
+  "status": "confirmatory-eligible (other conditions still apply)",
+  "by_category": {
+   "Aksesuar": {
+    "expected": 25,
+    "not_expected": 0,
+    "unclear": 1
+   },
+   "Giyim": {
+    "expected": 21,
+    "not_expected": 1,
+    "unclear": 1
+   },
+   "Kozmetik & Kişisel Bakım": {
+    "expected": 18,
+    "not_expected": 0,
+    "unclear": 2
+   },
+   "Kitap": {
+    "expected": 16,
+    "not_expected": 0,
+    "unclear": 1
+   },
+   "Elektronik": {
+    "expected": 13,
+    "not_expected": 1,
+    "unclear": 0
+   }
+  }
+ },
+ "note": "A3 uses the A1 source pool but is descriptive; it is not classified by this check.",
+ "hashes": {
+  "filled_xlsx": "54c791a45f800c12304fe3d5c26ce6fd229192b065c1f2ad882f8eb7308cc44b",
+  "filled_csv": "3a98576e918c75925f3c335d564a4ad6ce8df7ab8ea63e8dd3e1e22b6c527d46",
+  "key_csv": "b4d727df4855e7627f49ae809f7b07023bbcee9f6a04f3c94de5806c3dd77f9f",
+  "common_py": "53d6e3e6452f7a7e8dd3fb31df0991dd0e17b12703f55f14ea71800df0cd72f2"
+ }
+}

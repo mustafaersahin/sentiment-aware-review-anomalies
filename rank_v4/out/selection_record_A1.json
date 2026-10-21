@@ -1,0 +1,97 @@
+{
+ "started_utc": "2026-10-21T08:28:15.400887+00:00",
+ "definitions": {
+  "alpha_median": "target_mean (protocol 14.2.5)",
+  "proj_counts": "outcome_specific {'D': (32, 64), 'K': (30, 56)}",
+  "selection_replicates": "r = 0..9"
+ },
+ "steps": {
+  "alpha": {
+   "per_alpha": {
+    "0.1": {
+     "excl_val": 0.0,
+     "excl_test": 0.0,
+     "median_norm_D_B0_val": 0.031746031746031744,
+     "eligible_val": 30,
+     "eligible_test": 56,
+     "pool_ok_val": 32,
+     "pool_ok_test": 64,
+     "targets_val": 32
+    },
+    "0.2": {
+     "excl_val": 0.0,
+     "excl_test": 0.0,
+     "median_norm_D_B0_val": 0.047619047619047616,
+     "eligible_val": 30,
+     "eligible_test": 56,
+     "pool_ok_val": 32,
+     "pool_ok_test": 64,
+     "targets_val": 32
+    }
+   },
+   "selected": null,
+   "rule": "smallest alpha in {0.10,0.20}: excl<=0.10 both splits and median >= 0.08"
+  }
+ },
+ "classification": [
+  "exploratory",
+  [
+   "alpha rule failed",
+   "validation eligible 0 < 30",
+   "test eligible 0 < 30"
+  ]
+ ],
+ "polarity_check": {
+  "A1": {
+   "share_expected": 0.94,
+   "passed": true
+  },
+  "A2": {
+   "share_expected": 0.93,
+   "passed": true
+  }
+ },
+ "access_evidence": {
+  "universes_built": [
+   "val"
+  ],
+  "calls_by_split": {
+   "attack": {
+    "val": 640
+   },
+   "run_methods": {
+    "val": 640
+   }
+  },
+  "test_reads": "pre-attack counts only (preattack_counts: n_p, L_p, pool size, clean half)"
+ },
+ "hashes": {
+  "code": {
+   "select_validation.py": "b5cac9854c4220780d7223d3827535864706fa2444b9225a3ffaf7a726083472",
+   "common.py": "08e86493f70e343f3d01c4de5353db6dd2d91d641579dd94a3578eab8885a2b8",
+   "exp.py": "4919fb19e637e9d88593a7d1068f945bb8551615089e105a2f259e0107ee067f"
+  },
+  "data": {
+   "work/tr_corpus.parquet": "9e210bd0665ede226ab736d090b915f59b2716b8fb79288e3dc537eda8f3a713",
+   "work/emb_tr.npy": "f2f0b71501d9b2c72016ea8eb2e6690c383a04f13335b55ee993ded74f797ca9",
+   "work/sent_tr.npy": "884ea380b4c39392cbc3835b0a54b7b2a5d2b5cb9b01c5d48777d2fd7b35213f"
+  },
+  "protocol": "bd50444e757618ad06d44afc62a05edc41f6a7480144aa900e3e67add85314d9",
+  "frozen_metadata": "ad29a203dc39c75dc174768a237aae8a2b34345f7d4eccb8f21d7ef224477de1",
+  "polarity_result": "54e9c9343cca334a656757618cc0cd8beade41bf5bc9ab04435d41566fa7cdca"
+ },
+ "model": {
+  "label": "ridge_srcout",
+  "train_rows": 16222,
+  "alpha": 10.0,
+  "sha256": "4136857b82f50b73d3e0a15a4ebe050ea4d81d36c0a8296f82eb09d2d4f8158b"
+ },
+ "env": {
+  "python": "3.13.16",
+  "numpy": "2.5.4",
+  "pandas": "3.0.6",
+  "sklearn": "1.9.1",
+  "entropy": 20261021
+ },
+ "finished_utc": "2026-10-21T08:28:20.114799+00:00"
+}

@@ -6,7 +6,7 @@ from sklearn.metrics import cohen_kappa_score, roc_auc_score
 
 W, OUT = sys.argv[1], sys.argv[2]
 c = pd.read_parquet(f"{W}/tr_corpus.parquet")
-m = pd.read_csv(f"{W}/natural_audit.csv").merge(pd.read_csv(f"{W}/human_audit.csv"), on="rid").merge(c[["rid", "text"]], on="rid")
+m = pd.read_csv(f"{W}/natural_audit.csv").rename(columns={"llm_label": "label"}).merge(pd.read_csv(f"{W}/human_audit.csv"), on="rid").merge(c[["rid", "text"]], on="rid")
 m["trunc"] = m.text.astype(str).str.contains("Devamını Oku")
 pct = lambda x: f"{100 * x.mean():.1f}"
 mac = {}

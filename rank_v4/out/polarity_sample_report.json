@@ -1,0 +1,169 @@
+{
+ "rule": "protocol 14.7 (amended 2026-10-21): category quotas proportional to sum n_p of the family's targets (val+test)",
+ "A1": {
+  "target_products": 96,
+  "weights_sum_n": {
+   "Aksesuar": 2564,
+   "Elektronik": 1542,
+   "Giyim": 2932,
+   "Kitap": 1531,
+   "Kozmetik & Kişisel Bakım": 2284
+  },
+  "quotas": {
+   "Aksesuar": 24,
+   "Elektronik": 14,
+   "Giyim": 27,
+   "Kitap": 14,
+   "Kozmetik & Kişisel Bakım": 21
+  },
+  "quotas_if_alpha": {
+   "0.1": {
+    "Aksesuar": 24,
+    "Elektronik": 14,
+    "Giyim": 27,
+    "Kitap": 14,
+    "Kozmetik & Kişisel Bakım": 21
+   },
+   "0.2": {
+    "Aksesuar": 24,
+    "Elektronik": 14,
+    "Giyim": 27,
+    "Kitap": 14,
+    "Kozmetik & Kişisel Bakım": 21
+   }
+  },
+  "pool": {
+   "Aksesuar": {
+    "reviews": 94,
+    "unique_norm_texts": 94
+   },
+   "Elektronik": {
+    "reviews": 63,
+    "unique_norm_texts": 63
+   },
+   "Giyim": {
+    "reviews": 92,
+    "unique_norm_texts": 92
+   },
+   "Kitap": {
+    "reviews": 25,
+    "unique_norm_texts": 25
+   },
+   "Kozmetik & Kişisel Bakım": {
+    "reviews": 67,
+    "unique_norm_texts": 67
+   }
+  },
+  "accepted": {
+   "Aksesuar": 24,
+   "Elektronik": 14,
+   "Giyim": 27,
+   "Kitap": 14,
+   "Kozmetik & Kişisel Bakım": 21
+  },
+  "total": 100,
+  "rejected_duplicates": 0,
+  "shortfall": {}
+ },
+ "A2": {
+  "target_products": 96,
+  "weights_sum_n": {
+   "Aksesuar": 3000,
+   "Elektronik": 1560,
+   "Giyim": 2640,
+   "Kitap": 1960,
+   "Kozmetik & Kişisel Bakım": 2280
+  },
+  "quotas": {
+   "Aksesuar": 26,
+   "Elektronik": 14,
+   "Giyim": 23,
+   "Kitap": 17,
+   "Kozmetik & Kişisel Bakım": 20
+  },
+  "quotas_if_alpha": {
+   "0.1": {
+    "Aksesuar": 26,
+    "Elektronik": 14,
+    "Giyim": 23,
+    "Kitap": 17,
+    "Kozmetik & Kişisel Bakım": 20
+   },
+   "0.2": {
+    "Aksesuar": 26,
+    "Elektronik": 14,
+    "Giyim": 23,
+    "Kitap": 17,
+    "Kozmetik & Kişisel Bakım": 20
+   }
+  },
+  "pool": {
+   "Aksesuar": {
+    "reviews": 1246,
+    "unique_norm_texts": 1230
+   },
+   "Elektronik": {
+    "reviews": 1582,
+    "unique_norm_texts": 1567
+   },
+   "Giyim": {
+    "reviews": 753,
+    "unique_norm_texts": 751
+   },
+   "Kitap": {
+    "reviews": 1279,
+    "unique_norm_texts": 1242
+   },
+   "Kozmetik & Kişisel Bakım": {
+    "reviews": 762,
+    "unique_norm_texts": 755
+   }
+  },
+  "accepted": {
+   "Aksesuar": 26,
+   "Elektronik": 14,
+   "Giyim": 23,
+   "Kitap": 17,
+   "Kozmetik & Kişisel Bakım": 20
+  },
+  "total": 100,
+  "rejected_duplicates": 0,
+  "shortfall": {}
+ },
+ "checks": {
+  "n": 200,
+  "unique_rid": true,
+  "unique_norm_text": true,
+  "families": {
+   "A1": 100,
+   "A2": 100
+  },
+  "all_from_source_products": true,
+  "ratings_by_family": {
+   "A1": [
+    1,
+    2
+   ],
+   "A2": [
+    5
+   ]
+  }
+ },
+ "hashes": {
+  "code": {
+   "make_polarity_sheet.py": "0ce276e11b1b83de57b5ec114d3b534a8fc82146f083f130f1b9be39ed894cde",
+   "common.py": "53d6e3e6452f7a7e8dd3fb31df0991dd0e17b12703f55f14ea71800df0cd72f2",
+   "exp.py": "9bd05ced256d9341ad911d751c96fc64d984864fc0f416836c607ab17a22b32a"
+  },
+  "data": {
+   "work/tr_corpus.parquet": "9e210bd0665ede226ab736d090b915f59b2716b8fb79288e3dc537eda8f3a713",
+   "work/emb_tr.npy": "f2f0b71501d9b2c72016ea8eb2e6690c383a04f13335b55ee993ded74f797ca9",
+   "work/sent_tr.npy": "884ea380b4c39392cbc3835b0a54b7b2a5d2b5cb9b01c5d48777d2fd7b35213f"
+  },
+  "sheet_csv": "5e7c9eab7140d820b3eecd5a79227ccda1d3f3794b902e4293f27538d2af7381",
+  "key_csv": "b4d727df4855e7627f49ae809f7b07023bbcee9f6a04f3c94de5806c3dd77f9f",
+  "protocol": "32ac87b8abe9c5652941dfc2e4e0331d48da1558b8dc1ad48a1e463263c1f580",
+  "source_products_sha256": "31872e45e88591176378ada36dc34f507d5ca84828f8a8e2da38542ce1d990ee",
+  "entropy": 20261021
+ }
+}

@@ -1,0 +1,246 @@
+{
+ "settings": {
+  "split": "val",
+  "alpha": 0.2,
+  "rhos": [
+   0.5,
+   1,
+   2
+  ],
+  "R": 2,
+  "targets_per_family": 6,
+  "note": "mechanics only; no selection"
+ },
+ "checks": {
+  "attack_reproducible": {
+   "passed": 36,
+   "failed": 0
+  },
+  "no_duplicate_injected_text": {
+   "passed": 36,
+   "failed": 0
+  },
+  "inj_rid_format": {
+   "passed": 36,
+   "failed": 0
+  },
+  "injected_rating": {
+   "passed": 36,
+   "failed": 0
+  },
+  "source_from_source_products": {
+   "passed": 36,
+   "failed": 0
+  },
+  "metric_recompute": {
+   "passed": 1080,
+   "failed": 0
+  },
+  "n_removed": {
+   "passed": 1080,
+   "failed": 0
+  },
+  "ranges": {
+   "passed": 1080,
+   "failed": 0
+  },
+  "removal_within_target": {
+   "passed": 1080,
+   "failed": 0
+  },
+  "R2_semantics": {
+   "passed": 108,
+   "failed": 0
+  },
+  "R3_semantics": {
+   "passed": 108,
+   "failed": 0
+  },
+  "scores_finite": {
+   "passed": 108,
+   "failed": 0
+  },
+  "LAF_restores_reference": {
+   "passed": 72,
+   "failed": 0
+  },
+  "order_invariance": {
+   "passed": 360,
+   "failed": 0
+  },
+  "ff_score_methods_deterministic": {
+   "passed": 60,
+   "failed": 0
+  },
+  "nan_stops": {
+   "passed": 1,
+   "failed": 0
+  }
+ },
+ "failures": [],
+ "boundary_diagnostic": {
+  "exact": {
+   "B0": 0,
+   "gap_rm": 0,
+   "gap_ens": 0,
+   "saad_core": 0,
+   "gap_cal": 0,
+   "R4": 90,
+   "B2p": 108,
+   "R2": 92,
+   "R3": 90,
+   "LAF": 36
+  },
+  "near": {
+   "B0": 0,
+   "gap_rm": 0,
+   "gap_ens": 0,
+   "saad_core": 0,
+   "gap_cal": 0,
+   "R4": 0,
+   "B2p": 0,
+   "R2": 0,
+   "R3": 0,
+   "LAF": 0
+  }
+ },
+ "method_runs": 1080,
+ "seconds_per_scenario_all_methods": {
+  "mean": 0.0065322701944768155,
+  "max": 0.009910342000694072
+ },
+ "ff": [
+  {
+   "fam": "A1",
+   "target": 0,
+   "control": 46,
+   "b": 21,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A1",
+   "target": 46,
+   "control": 0,
+   "b": 19,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A1",
+   "target": 49,
+   "control": 276,
+   "b": 24,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A1",
+   "target": 76,
+   "control": 287,
+   "b": 24,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A1",
+   "target": 77,
+   "control": 167,
+   "b": 24,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A1",
+   "target": 85,
+   "control": 324,
+   "b": 24,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A2",
+   "target": 6,
+   "control": 123,
+   "b": 24,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A2",
+   "target": 8,
+   "control": 252,
+   "b": 24,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A2",
+   "target": 12,
+   "control": 30,
+   "b": 24,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A2",
+   "target": 30,
+   "control": 12,
+   "b": 24,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A2",
+   "target": 34,
+   "control": 417,
+   "b": 24,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  },
+  {
+   "fam": "A2",
+   "target": 42,
+   "control": 264,
+   "b": 24,
+   "random_methods_differ_across_r": {
+    "B2p": true,
+    "R2": true,
+    "R3": true
+   }
+  }
+ ]
+}

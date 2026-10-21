@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Sentiment–Rating Gaps for Detecting Manipulated Product Reviews: replication package"
+authors:
+  - family-names: "Erşahin"
+    given-names: "Buket"
+    affiliation: "İzmir Institute of Technology"
+  - family-names: "Erşahin"
+    given-names: "Mustafa"
+    affiliation: "Commencis"
+version: "2.0.0"
+license: MIT
+repository-code: "https://github.com/mustafaersahin/sentiment-aware-review-anomalies"
