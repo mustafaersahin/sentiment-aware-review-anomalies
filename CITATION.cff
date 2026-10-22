@@ -8,9 +8,9 @@ authors:
   - family-names: "Erşahin"
     given-names: "Mustafa"
     affiliation: "Commencis"
-version: "2.0.0"
+version: "2.0.1"
 doi: "10.5281/zenodo.23531379"
-date-released: "2026-10-21"
+date-released: "2026-10-22"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.23531378"

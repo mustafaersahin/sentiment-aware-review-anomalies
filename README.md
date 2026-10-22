@@ -7,6 +7,7 @@ Evidence from Turkish and English Data"* (B. Erşahin and M. Erşahin).
 
 > **Status:** revised version for the manuscript, archived as release `v2.0.0` (commit `e5f9210`):
 > [10.5281/zenodo.23531379](https://doi.org/10.5281/zenodo.23531379); all versions: [10.5281/zenodo.23531378](https://doi.org/10.5281/zenodo.23531378).
+> Release `v2.0.1` adds `requirements.txt`, environment notes and the `OPENAI_API_KEY` option; code paths and results are unchanged.
 > The state before the revision is tagged `v1.0-initial` (commit `f30c2b1`). See *Versions* below.
 
 ## Data
@@ -20,6 +21,11 @@ Evidence from Turkish and English Data"* (B. Erşahin and M. Erşahin).
 
 Review texts, embeddings and per-review scores are not redistributed; `code/prepare.py` rebuilds the corpora
 deterministically (seed 7) and the other scripts regenerate everything else.
+
+## Environment
+Python 3.13 on Linux x86-64, CPU only (four vCPUs, 15 GB memory); package versions in `requirements.txt`
+(`pip install -r requirements.txt`). `gen_fake_tr.py` and `natural_audit.py` call the OpenAI API and read the key from
+`OPENAI_API_KEY`; their outputs are distributed in `data/`, so the API is not needed to reproduce the results.
 
 ## Detection experiments and natural-inconsistency audit (main results of the manuscript)
     python code/prepare.py <data_dir> work            # corpora and reference/evaluation split
@@ -54,7 +60,7 @@ intervals describe Monte Carlo variation of the attack draws only. See `rank_v4/
 - `results/detection.json` – detection results (all scenarios, detectors and seeds; aggregate metrics).
 
 ## Citation
-See `CITATION.cff`. Release v2.0.0: https://doi.org/10.5281/zenodo.23531379 (cite all versions: https://doi.org/10.5281/zenodo.23531378).
+See `CITATION.cff`. Cite all versions: https://doi.org/10.5281/zenodo.23531378 (release v2.0.0: https://doi.org/10.5281/zenodo.23531379).
 
 ## Licence
 Code: MIT.

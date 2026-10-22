@@ -2,8 +2,11 @@
 Sample: 200 reviews ranked highest by the sentiment-gap ensemble and 200 random reviews (seed 11).
 Each is labelled by gpt-4.1-mini (temperature 0) as consistent / inconsistent / unclear with its star rating.
 Usage: python natural_audit.py <work_dir> <code_dir>"""
-import sys, json, time, urllib.request, importlib.util, numpy as np, pandas as pd
+import os, sys, json, time, urllib.request, importlib.util, numpy as np, pandas as pd
 from concurrent.futures import ThreadPoolExecutor
+HEADERS = {"Content-Type": "application/json"}
+if os.environ.get("OPENAI_API_KEY"):          # otherwise the key must be injected by a network proxy
+    HEADERS["Authorization"] = "Bearer " + os.environ["OPENAI_API_KEY"]
 W, C = sys.argv[1], sys.argv[2]
 spec = importlib.util.spec_from_file_location("dl", C + "/detect_lib.py"); dm = importlib.util.module_from_spec(spec); spec.loader.exec_module(dm)
 g = dm.tr[dm.tr.part == "evaluation"]; gi = g.index.values
@@ -17,7 +20,7 @@ PROMPT = ("Aşağıdaki ürün yorumunun metni, kullanıcının verdiği yıldı
 def ask(i):
     body = {"model": "gpt-4.1-mini", "temperature": 0, "seed": 7, "max_tokens": 20, "response_format": {"type": "json_object"},
             "messages": [{"role": "user", "content": PROMPT.format(r=int(r[i]), t=g.text.values[i][:1500])}]}
-    req = urllib.request.Request("https://api.openai.com/v1/chat/completions", data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
+    req = urllib.request.Request("https://api.openai.com/v1/chat/completions", data=json.dumps(body).encode(), headers=HEADERS)
     for a in range(4):
         try: x = json.load(urllib.request.urlopen(req, timeout=60)); break
         except Exception: time.sleep(2 ** a)
