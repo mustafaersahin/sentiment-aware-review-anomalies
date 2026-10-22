@@ -7,7 +7,7 @@ Evidence from Turkish and English Data"* (B. Erşahin and M. Erşahin).
 
 > **Status:** revised version for the manuscript, archived as release `v2.0.0` (commit `e5f9210`):
 > [10.5281/zenodo.23531379](https://doi.org/10.5281/zenodo.23531379); all versions: [10.5281/zenodo.23531378](https://doi.org/10.5281/zenodo.23531378).
-> Release `v2.0.1` adds `requirements.txt`, environment notes and the `OPENAI_API_KEY` option; code paths and results are unchanged.
+> Release `v2.0.1` ([10.5281/zenodo.23575135](https://doi.org/10.5281/zenodo.23575135)) adds `requirements.txt`, environment notes and the `OPENAI_API_KEY` option; code paths and results are unchanged.
 > The state before the revision is tagged `v1.0-initial` (commit `f30c2b1`). See *Versions* below.
 
 ## Data
@@ -60,7 +60,7 @@ intervals describe Monte Carlo variation of the attack draws only. See `rank_v4/
 - `results/detection.json` – detection results (all scenarios, detectors and seeds; aggregate metrics).
 
 ## Citation
-See `CITATION.cff`. Cite all versions: https://doi.org/10.5281/zenodo.23531378 (release v2.0.0: https://doi.org/10.5281/zenodo.23531379).
+See `CITATION.cff`. Cite all versions: https://doi.org/10.5281/zenodo.23531378 (release v2.0.1: https://doi.org/10.5281/zenodo.23575135; v2.0.0: https://doi.org/10.5281/zenodo.23531379).
 
 ## Licence
 Code: MIT.
